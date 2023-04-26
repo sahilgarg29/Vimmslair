@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+	h1 {
+		@apply text-[2.5rem] font-bold;
+	}
+
+	h2 {
+		@apply text-[2rem] font-bold;
+	}
+
+	p {
+		@apply mb-4;
+	}
+
+	body {
+		@apply leading-[1.5] text-[0.9375rem] text-textColor outline-none;
+	}
+
+	table a {
+		@apply text-linkColor;
+	}
+}

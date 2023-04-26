@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<script src="https://cdn.tailwindcss.com"></script>
+		<script>
+			tailwind.config = {
+				theme: {
+					extend: {
+						colors: {
+							primary: '#eb144c',
+							primaryDark: '#da154a',
+							secondary: '#f2f2f2',
+						},
+					},
+
+					screens: {
+						sm: '540px',
+						// => @media (min-width: 640px) { ... }
+
+						md: '720px',
+						// => @media (min-width: 768px) { ... }
+
+						lg: '960px',
+						// => @media (min-width: 1024px) { ... }
+
+						xl: '1140px',
+						// => @media (min-width: 1280px) { ... }
+					},
+				},
+			};
+		</script>
+
+		<style type="text/tailwindcss">
+			* {
+				box-sizing: border-box;
+			}
+
+			body {
+				line-height: 1.5;
+			}
+
+			.hero {
+				background-image: url('./background-romsforever.png');
+			}
+
+			@media screen and (max-width: 720px) {
+				.top-nav {
+					display: none;
+					position: fixed;
+					left: 0;
+					top: 0;
+					width: 17.5rem;
+					background-color: white;
+					z-index: 100;
+					height: 100vh;
+					transition: all 0.3s ease 0s;
+					overflow-y: auto;
+				}
+
+				.top-nav ul {
+					display: flex;
+					flex-direction: column;
+					align-items: flex-start;
+					justify-content: center;
+				}
+
+				.top-nav ul li {
+					position: relative;
+					z-index: 1000;
+					/* background-color: white; */
+					color: #212529;
+					padding: 0.75rem;
+					/* padding-right: 1.5rem; */
+					border-bottom: 1px solid #dee2e6;
+					width: 100%;
+				}
+
+				.top-nav ul li a {
+					padding: 0;
+				}
+
+				.top-nav ul li a:hover {
+					background-color: white;
+					color: #eb144c;
+				}
+			}
+
+			.btn {
+				display: inline-flex;
+				align-items: center;
+				justify-content: center;
+				padding: 0.5rem 1rem;
+				font-weight: 600;
+				transition: all 0.2s ease-in-out;
+				color: white;
+				background-color: #eb144c;
+				border-radius: 0.375rem;
+			}
+
+			.search-btn {
+				border-top-left-radius: 0;
+				border-bottom-left-radius: 0;
+			}
+
+			h2 {
+				font-size: 2rem !important;
+				font-weight: 700 !important;
+			}
+
+			/* p {
+				margin-bottom: 1rem;
+			} */
+
+			.card {
+				background-color: white;
+				border-radius: 0.375rem;
+				box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+				transition: all 0.2s ease-in-out;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				padding: 1rem;
+				border: 1px solid #eee;
+				justify-content: center;
+				color: #eb144c;
+			}
+
+			.card:hover {
+				border-color: #eb144c;
+			}
+
+			.card img {
+				max-width: 100%;
+				max-height: 5rem;
+				margin-bottom: 1rem;
+			}
+
+			.card h3 {
+				font-size: 1.25rem;
+				font-weight: 600;
+				color: #212529 !important;
+			}
+
+			.card span {
+				font-size: 0.85rem;
+				font-weight: 400;
+				color: #eb144c;
+			}
+		</style>
+	</head>
+	<body class="bg-secondary">
+		<header class="bg-primary">
+			<div
+				class="container flex items-center mx-auto justify-between text-white px-4 py-2"
+			>
+				<h1 class="font-bold text-[2rem] text-center">
+					<a href="#">ROMSFUN.COM</a>
+				</h1>
+
+				<nav class="top-nav">
+					<div class="flex justify-end md:hidden">
+						<button class="p-4 flex items-center justify-center close-menu">
+							<svg
+								height="1.5rem"
+								xmlns="http://www.w3.org/2000/svg"
+								viewBox="0 0 320 512"
+							>
+								<path
+									d="M193.94 256L296.5 153.44l21.15-21.15c3.12-3.12 3.12-8.19 0-11.31l-22.63-22.63c-3.12-3.12-8.19-3.12-11.31 0L160 222.06 36.29 98.34c-3.12-3.12-8.19-3.12-11.31 0L2.34 120.97c-3.12 3.12-3.12 8.19 0 11.31L126.06 256 2.34 379.71c-3.12 3.12-3.12 8.19 0 11.31l22.63 22.63c3.12 3.12 8.19 3.12 11.31 0L160 289.94 262.56 392.5l21.15 21.15c3.12 3.12 8.19 3.12 11.31 0l22.63-22.63c3.12-3.12 3.12-8.19 0-11.31L193.94 256z"
+								></path>
+							</svg>
+						</button>
+					</div>
+					<ul class="flex items-center justify-center font-semibold">
+						<li>
+							<a href="#" class="px-[1.25rem] py-[1.25rem] hover:bg-primaryDark"
+								>HOME</a
+							>
+						</li>
+						<li>
+							<a href="#" class="px-[1.25rem] py-[1.25rem] hover:bg-primaryDark"
+								>ROMS</a
+							>
+						</li>
+						<li>
+							<a href="#" class="px-[1.25rem] py-[1.25rem] hover:bg-primaryDark"
+								>EMULATORS</a
+							>
+						</li>
+						<li>
+							<a href="#" class="px-[1.25rem] py-[1.25rem] hover:bg-primaryDark"
+								>FULL SET (PACK)</a
+							>
+						</li>
+						<li>
+							<a href="#" class="px-[1.25rem] py-[1.25rem] hover:bg-primaryDark"
+								>BLOG</a
+							>
+						</li>
+					</ul>
+				</nav>
+
+				<button class="md:hidden open-menu">
+					<svg
+						height="1.75rem"
+						fill="#fff"
+						xmlns="http://www.w3.org/2000/svg"
+						viewBox="0 0 448 512"
+					>
+						<path
+							d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"
+						></path>
+					</svg>
+				</button>
+			</div>
+		</header>
+
+		<section
+			class="hero bg-cover min-h-[500px] flex items-center justify-center bg-no-repeat bg-center"
+		>
+			<div
+				class="container flex flex-col gap-[3rem] items-center px-4 text-center"
+			>
+				<h1 class="text-white text-[2.5rem] font-bold">
+					PLAY VIDEO GAME ROMS <br />
+					ON YOUR COMPUTER OR PHONE
+				</h1>
+				<div class="w-[100%] flex">
+					<input
+						type="search"
+						name="Search"
+						id="search"
+						placeholder="Enter ROM name for search"
+						class="flex-grow-[1] rounded-[0.375rem] px-[1rem] py-[0.5rem] text-[1.25rem] rounded-tr-none rounded-br-none outline-none"
+					/>
+					<button class="btn btn-primary search-btn">
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							viewBox="0 0 24 24"
+							id="search"
+						>
+							<g data-name="Layer 2">
+								<path
+									d="m20.71 19.29-3.4-3.39A7.92 7.92 0 0 0 19 11a8 8 0 1 0-8 8 7.92 7.92 0 0 0 4.9-1.69l3.39 3.4a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42zM5 11a6 6 0 1 1 6 6 6 6 0 0 1-6-6z"
+									data-name="search"
+								></path>
+							</g></svg
+						>Search
+					</button>
+				</div>
+			</div>
+		</section>
+
+		<main class="container px-4 mx-auto">
+			<section
+				class="mx-auto bg-white rounded shadow-lg mt-[3rem] px-6 pt-6 pb-6 mb-5"
+			>
+				<h2 class="mb-4">Welcome to ROMSFUN.COM</h2>
+				<p class="text-[0.93rem] mb-4">
+					Download over 10000 classic and modern games for free. We share the
+					full ROM and ISO of the latest Nintendo and Playstation platforms.
+					Here you can download Redump and No-Intro validated ROMs for free. In
+					addition, we also have some Pokemon hacking games, mods.
+				</p>
+				<p class="text-[0.93rem]">
+					No pop-ups, no .exe files … ready for a childhood adventure
+				</p>
+			</section>
+
+			<section class="mb-8">
+				<header class="flex items-center justify-between mb-4">
+					<h2>Rom Consoles</h2>
+					<a href="#" class="btn btn-primary">VIEW ALL</a>
+				</header>
+				<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+					<div>
+						<a href="#" class="card">
+							<img
+								src="https://romsfun.com/wp-content/uploads/2020/08/game-boy.png"
+								alt="game boy"
+							/>
+							<h3>Game Boy (GB)</h3>
+							<div>
+								<span>160 Roms</span> |
+								<span>79,877</span>
+							</div>
+						</a>
+					</div>
+					<div>
+						<a href="#" class="card">
+							<img
+								src="https://romsfun.com/wp-content/uploads/2020/08/game-boy.png"
+								alt="game boy"
+							/>
+							<h3>Game Boy (GB)</h3>
+							<div>
+								<span>160 Roms</span> |
+								<span>79,877</span>
+							</div>
+						</a>
+					</div>
+					<div>
+						<a href="#" class="card">
+							<img
+								src="https://romsfun.com/wp-content/uploads/2020/08/game-boy.png"
+								alt="game boy"
+							/>
+							<h3>Game Boy (GB)</h3>
+							<div>
+								<span>160 Roms</span> |
+								<span>79,877</span>
+							</div>
+						</a>
+					</div>
+					<div>
+						<a href="#" class="card">
+							<img
+								src="https://romsfun.com/wp-content/uploads/2020/08/game-boy.png"
+								alt="game boy"
+							/>
+							<h3>Game Boy (GB)</h3>
+							<div>
+								<span>160 Roms</span> |
+								<span>79,877</span>
+							</div>
+						</a>
+					</div>
+					<div>
+						<a href="#" class="card">
+							<img
+								src="https://romsfun.com/wp-content/uploads/2020/08/game-boy.png"
+								alt="game boy"
+							/>
+							<h3>Game Boy (GB)</h3>
+							<div>
+								<span>160 Roms</span> |
+								<span>79,877</span>
+							</div>
+						</a>
+					</div>
+					<div>
+						<a href="#" class="card">
+							<img
+								src="https://romsfun.com/wp-content/uploads/2020/08/game-boy.png"
+								alt="game boy"
+							/>
+							<h3>Game Boy (GB)</h3>
+							<div>
+								<span>160 Roms</span> |
+								<span>79,877</span>
+							</div>
+						</a>
+					</div>
+					<div>
+						<a href="#" class="card">
+							<img
+								src="https://romsfun.com/wp-content/uploads/2020/08/game-boy.png"
+								alt="game boy"
+							/>
+							<h3>Game Boy (GB)</h3>
+							<div>
+								<span>160 Roms</span> |
+								<span>79,877</span>
+							</div>
+						</a>
+					</div>
+					<div>
+						<a href="#" class="card">
+							<img
+								src="https://romsfun.com/wp-content/uploads/2020/08/game-boy.png"
+								alt="game boy"
+							/>
+							<h3>Game Boy (GB)</h3>
+							<div>
+								<span>160 Roms</span> |
+								<span>79,877</span>
+							</div>
+						</a>
+					</div>
+					<div>
+						<a href="#" class="card">
+							<img
+								src="https://romsfun.com/wp-content/uploads/2020/08/game-boy.png"
+								alt="game boy"
+							/>
+							<h3>Game Boy (GB)</h3>
+							<div>
+								<span>160 Roms</span> |
+								<span>79,877</span>
+							</div>
+						</a>
+					</div>
+					<div>
+						<a href="#" class="card">
+							<img
+								src="https://romsfun.com/wp-content/uploads/2020/08/game-boy.png"
+								alt="game boy"
+							/>
+							<h3>Game Boy (GB)</h3>
+							<div>
+								<span>160 Roms</span> |
+								<span>79,877</span>
+							</div>
+						</a>
+					</div>
+					<div>
+						<a href="#" class="card">
+							<img
+								src="https://romsfun.com/wp-content/uploads/2020/08/game-boy.png"
+								alt="game boy"
+							/>
+							<h3>Game Boy (GB)</h3>
+							<div>
+								<span>160 Roms</span> |
+								<span>79,877</span>
+							</div>
+						</a>
+					</div>
+					<div>
+						<a href="#" class="card">
+							<img
+								src="https://romsfun.com/wp-content/uploads/2020/08/game-boy.png"
+								alt="game boy"
+							/>
+							<h3>Game Boy (GB)</h3>
+							<div>
+								<span>160 Roms</span> |
+								<span>79,877</span>
+							</div>
+						</a>
+					</div>
+				</div>
+			</section>
+		</main>
+
+		<footer>
+			<nav class="bg-primary text-white">
+				<div class="container mx-auto px-4">
+					<ul
+						class="flex justify-center items-center gap-8 py-[1.5rem] text-[0.85rem] flex-wrap"
+					>
+						<li><a href="#">Roms</a></li>
+						<li><a href="#">Emulators</a></li>
+						<li><a href="#">Full Set(Pack)</a></li>
+						<li><a href="#">Blog</a></li>
+						<li><a href="#">DMCA</a></li>
+						<li>About</li>
+					</ul>
+				</div>
+			</nav>
+			<div class="bg-primaryDark text-white py-6">
+				<div
+					class="container mx-auto px-4 flex flex-col lg:flex-row gap-4 items-center justify-between"
+				>
+					<div><a href="#" class="text-[2rem] font-bold">ROMSFUN.COM</a></div>
+					<p class="text-center">
+						Copyright © 2021 ROMSFUN.COM – All rights reserved
+					</p>
+					<div class="flex items-center gap-4">
+						<a href="#"
+							><svg
+								height="16px"
+								xmlns="http://www.w3.org/2000/svg"
+								viewBox="0 0 320 512"
+							>
+								<path
+									d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"
+								></path></svg
+						></a>
+						<a href="#"
+							><svg
+								height="16px"
+								xmlns="http://www.w3.org/2000/svg"
+								viewBox="0 0 320 512"
+							>
+								<path
+									d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"
+								></path></svg
+						></a>
+						<a href="#"
+							><svg
+								height="16px"
+								xmlns="http://www.w3.org/2000/svg"
+								viewBox="0 0 320 512"
+							>
+								<path
+									d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"
+								></path></svg
+						></a>
+					</div>
+				</div>
+			</div>
+		</footer>
+
+		<script src="main.js"></script>
+	</body>
+</html>
